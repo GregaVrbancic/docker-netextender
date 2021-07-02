@@ -16,7 +16,7 @@ Dockerized SonicWall NetExtender VPN Client. Image is based on the ubuntu:focal 
 
 Run using the following command:
 
-```docker run --name netextender -e VPN_USERNAME=<vpn-username> -e VPN_PASSWORD=<vpn-password> -e VPN_DOMAIN=<vpn-domain> -e VPN_SERVER=<vpn-server> greggsi/docker-netextender```
+```docker run --name netextender -e VPN_USERNAME=<vpn-username> -e VPN_PASSWORD=<vpn-password> -e VPN_DOMAIN=<vpn-domain> -e VPN_SERVER=<vpn-server> gregsi/docker-netextender```
 
 ## Running using docker-compose
 
@@ -31,7 +31,7 @@ services:
     privileged: true
     cap_add:
       - net_admin
-    image: greggsi/docker-netextender
+    image: gregsi/docker-netextender
     security_opt:
       - label:disable
     stdin_open: true
