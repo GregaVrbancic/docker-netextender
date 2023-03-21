@@ -1,9 +1,9 @@
-FROM ubuntu:focal
+FROM --platform=linux/amd64 ubuntu:focal
 
 LABEL maintainer="Grega Vrbančič <grega.vrbancic@gmail.com>"
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV NETEXTENDER_URL "https://software.sonicwall.com/NetExtender/NetExtender.Linux-10.2.824.x86_64.tgz"
+ENV NETEXTENDER_URL "https://software.sonicwall.com/NetExtender/NetExtender.Linux-10.2.845.x86_64.tgz"
 ARG UID="1100"
 ENV UID ${UID}
 ARG USERNAME="netextender"
@@ -24,6 +24,9 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+
+# Fake ppp
+RUN echo pppoe > /etc/modules
 RUN mknod /dev/ppp c 108 0
 
 RUN useradd -u ${UID} -m -U ${USERNAME} && \
