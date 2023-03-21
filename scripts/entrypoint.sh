@@ -8,7 +8,6 @@ if [ ! -z "${VPN_USERNAME}" ] && [ ! -z "${VPN_PASSWORD}" ] && [ ! -z "${VPN_DOM
 
 	echo "Trying to establish VPN connection..."
 
-	# exec netExtender -u ${VPN_USERNAME} -p ${VPN_PASSWORD} -d ${VPN_DOMAIN} ${VPN_SERVER}
 	if [ ! -z "${ALWAYS_TRUST}" ]; then
 		echo "Always trust certificate enabled"
 		exec netExtender --always-trust -u ${VPN_USERNAME} -p ${VPN_PASSWORD} -d ${VPN_DOMAIN} ${VPN_SERVER}
