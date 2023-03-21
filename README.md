@@ -4,12 +4,12 @@ Dockerized SonicWall NetExtender VPN Client. Image is based on the ubuntu:focal 
 
 ## Required environmental variables
 
-| Variable  | Description |
-|---|---|
-| VPN_SERVER | URL to your VPN server (i.e. vpn.yourserver.com) |
-| VPN_DOMAIN | Your domain (i.e. LocalDomain) |
-| VPN_USERNAME | Your VPN username |
-| VPN_PASSWORD | Your VPN password |
+| Variable  | Description | Required/Optional |
+|---|---|---|
+| VPN_SERVER | URL to your VPN server (i.e. vpn.yourserver.com) | Required |
+| VPN_DOMAIN | Your domain (i.e. LocalDomain) | Required |
+| VPN_USERNAME | Your VPN username | Required |
+| VPN_PASSWORD | Your VPN password | Optional |
 
 
 ## Running as container

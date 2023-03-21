@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 ubuntu:focal
+FROM --platform=linux/amd64 ubuntu:20.04
 
 LABEL maintainer="Grega Vrbančič <grega.vrbancic@gmail.com>"
 
