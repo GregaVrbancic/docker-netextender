@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:  
+
+  vpn:
+    privileged: true
+    cap_add:
+      - net_admin
+    image: netextender
+    security_opt:
+      - label:disable
+    stdin_open: true
+    tty: true
+    environment:
+      - VPN_SERVER=<vpn-server>
+      - VPN_DOMAIN=<vpn-domain>
+      - VPN_USERNAME=<vpn-username>
+      - VPN_PASSWORD=<vpn-password>
+      - ALWAYS_TRUSTED=<yes/no>
+    dns:
+      - 8.8.8.8
+    networks:
+      - default
