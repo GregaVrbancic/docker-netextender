@@ -10,9 +10,20 @@ if [ ! -z "${VPN_USERNAME}" ] && [ ! -z "${VPN_PASSWORD}" ] && [ ! -z "${VPN_DOM
 
 	if [ ! -z "${ALWAYS_TRUST}" ]; then
 		echo "Always trust certificate enabled"
-		exec netExtender --always-trust -u ${VPN_USERNAME} -p ${VPN_PASSWORD} -d ${VPN_DOMAIN} ${VPN_SERVER}
+
+		if [ ! -z "${AUTO_RECONNECT}" ]; then
+			echo "Auto reconnect enabled"
+			exec netExtender --always-trust --auto-reconnect -u ${VPN_USERNAME} -p ${VPN_PASSWORD} -d ${VPN_DOMAIN} ${VPN_SERVER}
+		else
+			exec netExtender --always-trust -u ${VPN_USERNAME} -p ${VPN_PASSWORD} -d ${VPN_DOMAIN} ${VPN_SERVER}
+		fi
 	else
-		exec netExtender -u ${VPN_USERNAME} -p ${VPN_PASSWORD} -d ${VPN_DOMAIN} ${VPN_SERVER}
+		if [ ! -z "${AUTO_RECONNECT}" ]; then
+			echo "Auto reconnect enabled"
+			exec netExtender --auto-reconnect -u ${VPN_USERNAME} -p ${VPN_PASSWORD} -d ${VPN_DOMAIN} ${VPN_SERVER}
+		else
+			exec netExtender -u ${VPN_USERNAME} -p ${VPN_PASSWORD} -d ${VPN_DOMAIN} ${VPN_SERVER}
+		fi
 	fi
 
 else
